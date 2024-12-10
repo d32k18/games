@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris</title>
+    <style type="text/css">
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: sans-serif;
+            text-align: center;
+        }
+        canvas {
+            position:fixed;
+            left:0;
+            top:0;
+            width:100%;
+            height:100%;
+        }
+
+        button {
+            background-color: #333;
+            border: 1px solid #000;
+            color: #fff;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #fff;
+            color: #333;
+        }
+
+        #score {
+            font-size: 2em;
+            position: absolute;
+            top: 10px;
+            color: #000;
+        }
+
+        #game-over {
+            font-size: 4em;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            padding: 8px;
+            background-color: darkslategray;
+        }
+
+        #level {
+            font-size: 2em;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #000;
+        }
+
+        #menu {
+            background: darkslategray;
+            padding: 16px;
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            transform: translate(-50%, 50%);
+            border-radius: 8px;
+            display: none;
+        }
+
+        #touch-left {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            font-size: 2em;
+            cursor: pointer;
+            background: #333;
+            padding: 8px;
+            border-radius: 8px;
+            opacity: 0.5;
+            justify-content: center;
+        }
+
+        #touch-right {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 2em;
+            cursor: pointer;
+            background: #333;
+            padding: 8px;
+            border-radius: 8px;
+            opacity: 0.5;
+            
+        }
+
+    </style>
+</head>
+<body>
+    <canvas 
+        id="tetris" 
+        width="400" 
+        height="800" 
+        onclick="rotatePiece();">
+    </canvas>
+    <div id="game-over" onclick="startGame();">Game Over</div>
+    <div id="level">Level: 1</div>
+    <div id="score" onclick="toggleMenu();">Score: 0</div>
+    <br/>
+    <div id="menu">
+        <button id="start" onclick="startGame();">Start</button>
+        <button id="pause" onclick="pauseGame();">Pause</button>
+        <button id="resume" onclick="resumeGame();">Resume</button>
+        <button id="stop" onclick="stopGame();">Stop</button>
+    </div>
+    <div id="touch-left" onclick="moveLeft();">
+        <!--left arrow character-->
+        &larr;
+    </div>
+    <div id="touch-right" onclick="moveRight();">
+        <!--right arrow character-->
+        &rarr;
+    </div>
+    <script src="tetris.js"></script>
+</body>
+</html>
