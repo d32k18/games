@@ -10,12 +10,6 @@ The Basic Slither Game is written in JavaScript and utilizes HTML5 canvas for gr
 - Avoid collisions with other snakes' bodies.
 - Hold the mouse to increase the snake's movement speed (Points will be deducted when speeding up)
 
-## Installation
-
-Play directly [here](https://zukahai.github.io/slither.io/)
-
-Or download and open the `index.html` file in a web browser.
-
 ## Updates
 
 - **v1.0.0**:
@@ -25,4 +19,4 @@ Or download and open the `index.html` file in a web browser.
 
 ## Author
 
-- [Phan Đức Hải](./)
+- [Phan Đức Hải]
