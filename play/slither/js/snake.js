@@ -29,7 +29,7 @@ class snake {
     update() {
         this.time--;
         this.angle = this.getAngle(this.dx, this.dy);
-        if (this.name != "HaiZuka") {
+        if (this.name != "d32") {
             if (this.time > 90)
                 this.speed = 2;
             else
