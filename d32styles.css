@@ -1,0 +1,198 @@
+/* Global Styles */
+        body {
+            background-image: url('thumbnail/bg.png');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            position: relative;
+            overflow-y: auto;
+            padding-top: 40px; /* Ajustement pour créer un écart modéré */
+        }
+
+        /* Title Styles */
+        h3 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: orange;
+            text-align: center;
+            padding: 10px 0;
+            z-index: 100;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            box-sizing: border-box;
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Menu with Dropdown */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            margin-top: 80px; /* Un écart plus modéré entre le titre et le menu */
+        }
+
+        /* Fixed Menu */
+        .menu {
+            display: flex;
+            gap: 20px;
+            margin: 0; /* Retire l'écart supérieur pour plus de proximité avec le titre */
+            justify-content: center;
+            width: 100%;
+            position: fixed;  /* Fixe le menu en haut */
+            top: 60px;        /* Espace après le titre */
+            background-color: rgba(0, 0, 0, 0.5);  /* Fond semi-transparent */
+            z-index: 99;
+            padding: 10px 0;   /* Ajout de padding pour plus d'aération */
+        }
+
+        .menu a {
+            color: orange;
+            font-size: 1.2rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .menu a:hover::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: orange;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            z-index: 1;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #575757;
+        }
+
+        /* Image Grid Styles */
+        .games-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            width: 90%;
+            margin-top: 120px;  /* Marge pour ne pas chevaucher le menu fixe */
+            padding: 0 10px; /* Réduit l'écart entre le contenu et les bords */
+        }
+
+        .game-item {
+            position: relative;
+            text-align: center;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .game-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .game-item img {
+            width: 100%;
+            height: 180px; /* Fixe la hauteur de l'image */
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            filter: brightness(0.8);
+            border-radius: 10px;
+        }
+
+        .game-item p {
+            color: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            background-color: rgba(0, 0, 0, 0.7);
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        .game-item:hover img {
+            filter: brightness(1);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            h3 {
+                font-size: 2rem;
+            }
+
+            .menu {
+                flex-direction: column;
+                gap: 15px;
+                padding: 10px 0;
+            }
+
+            .games-container {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+                padding: 0 10px;
+            }
+
+            .game-item img {
+                height: 150px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h3 {
+                font-size: 1.6rem;
+            }
+
+            .game-item img {
+                height: 130px;
+            }
+
+            .menu {
+                gap: 10px;
+            }
+        }
