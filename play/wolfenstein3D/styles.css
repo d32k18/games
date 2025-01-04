@@ -29,18 +29,15 @@ body {
     background-color : #666;
 }
 
-
 #main {
-    position : absolute;
-    left : 0;
-    top : 0;
-    width : 640px;
-    height : 400px;
-    left : 50%;
-    top : 50%;
-    margin-left : -320px;
-    margin-top : -200px;
-    overflow : hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw; /* Prend la largeur de l'écran */
+    height: auto; /* Maintient le ratio d'aspect */
+    max-height: 100vh; /* Ne dépasse pas la hauteur de l'écran */
+    transform: translate(-50%, -50%); /* Centre l'élément */
+    overflow: hidden;
 }
 
 #game, #menu, #title-screen {
