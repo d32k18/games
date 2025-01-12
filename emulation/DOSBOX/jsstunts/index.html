@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS DOOM 🕹</title>
+    <title>JS Stunts 🕹</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="styles/button.css">
     <style>
@@ -69,7 +69,7 @@
         var dosbox = new Dosbox({
             id: "dosbox",
             onload: function (dosbox) {
-                dosbox.run("https://d32k18.github.io/games/emulation/DOSBOX/jsdoom/roms/ultimate-doom.zip", "./UltDoom/DOOM.EXE");
+                dosbox.run("https://d32k18.github.io/games/emulation/DOSBOX/jsstunts/roms/stunts.zip", "./STUNTS/ST.COM");
             },
             onrun: function (dosbox, app) {
                 console.log("App '" + app + "' is runned");
