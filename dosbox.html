@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <meta name="robots" content="noarchive">
+    <meta name="robots" content="nosnippet">
+    <meta name="robots" content="noodp">
+    <meta name="referrer" content="no-referrer">
+    <title>d32 Games</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="d32styles.css">
+</head>
+<body>
+
+    <!-- Title -->
+    <h3>d32 Games</h3>
+
+    <!-- Fixed Menu -->
+	<div class="menu">
+	    <a href="index.html">Games</a>
+	    <div class="dropdown">
+	        <a href="#">Emulateur</a>
+	        <div class="dropdown-content">
+	            <a href="nes.html">NES</a>
+	            <a href="snes.html">SNES</a>
+	            <a href="gba.html">GBA</a>
+	            <a href="dosbox.html">DOSBOX</a>
+	        </div>
+	    </div>
+	</div>
+
+    <!-- Games Container -->
+    <div class="games-container">
+        <div class="game-item">
+        	<a href="emulation/dosbox/jsdoom" data-href="emulation/dosbox/jsdoom">
+            	<img src="thumbnail/jsdoom.png" alt="jsdoom">
+            	<p>Doom</p>
+            </a>
+        </div>
+        
+        
+    </div>
+
+<br><br>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const gameItems = document.querySelectorAll('.game-item');
+
+        gameItems.forEach(function(item) {
+            item.addEventListener('click', function() {
+                const href = item.querySelector('a').getAttribute('data-href');
+                if (href) {
+                    window.location.href = href;
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
