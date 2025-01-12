@@ -10,26 +10,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS Stunts 🕹</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" type="text/css" href="styles/button.css">
-    <style>
-        /* Modifier le style pour le texte : texte normal, taille modérée */
-        .info-text {
-            color: white;
-            font-family: Arial, sans-serif;
-            font-size: 14px; /* Taille de texte modérée */
-            line-height: 1.6; /* Espacement entre les lignes pour améliorer la lisibilité */
-            padding: 15px;
-            background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-
-        /* Optionnel : ajouter un espacement pour les éléments de liste */
-        .info-text ul {
-            margin-left: 20px;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="stylesheet" type="text/css" href="./styles/button.css">
 </head>
 
 <body>
@@ -38,37 +20,9 @@
         <button class="wrapper" onclick="dosbox.requestFullScreen();">
             <a><span>FULLSCREEN</span></a>
         </button>
-
-        <!-- Texte ajouté ici -->
-        <div class="info-text">
-            
-            <p><strong>Page Line Word Question:</strong></p>
-            <ul>
-			<li>1 12 2 ...and *destructive* stunts that can smash your car...</li>
-			<li>2 8 1 *race* on the standard track by clicking on the car...</li>
-			<li>3 2 1 *track* selection screen. Your goal is to be on it.</li>
-			<li>3 13 4 In addition, *previewing* might give you a better...</li>
-			<li>4 4 4 ...time than missing *three* pieces of regular...</li>
-			<li>4 8 1 *proper* direction. If you get on the track...</li>
-			<li>5 12 3 hit the *cables* and crash...</li>
-			<li>6 3 7 while you are driving through the *loop*...</li>
-			<li>6 5 8 ...more than *110* MPH</li>
-			<li>7 2 1 *displaying* the current car, an acceleration curve...</li>
-			<li>7 5 7 ...retail price), and a set of *buttons*.</li>
-			<li>8 5 7 Just your everyday type of vehicle. *You*...</li>
-			<li>9 3 9 Interrupted while driving with a *query*</li>
-			<li>10 3 5 ...your driving performance. This *button* is...</li>
-			<li>10 6 1 *camera* mode while in this viewing mode.</li>
-			<li>11 2 1 *directory*. Highlight the desired replay...</li>
-			<li>12 2 1 *around*, you can choose to race any one at a time.</li>
-			<li>13 4 11 ...bird's eye view of the *currently*...</li>
-			<li>14 6 1 *selected* piece is the area upon which it...</li>
-            </ul>
-        </div>
-        
     </div>
 
-    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="./script.js"></script>
     <script type="text/javascript">
         var dosbox = new Dosbox({
             id: "dosbox",
