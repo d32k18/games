@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex">
+    <meta name="robots" content="noarchive">
+    <meta name="robots" content="nosnippet">
+    <meta name="robots" content="noodp">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Xonix 🕹</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="styles/button.css">
+    <style>
+        /* Modifier le style pour le texte : texte normal, taille modérée */
+        .info-text {
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 14px; /* Taille de texte modérée */
+            line-height: 1.6; /* Espacement entre les lignes pour améliorer la lisibilité */
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        /* Optionnel : ajouter un espacement pour les éléments de liste */
+        .info-text ul {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="dosbox"></div>
+        <button class="wrapper" onclick="dosbox.requestFullScreen();">
+            <a><span>FULLSCREEN</span></a>
+        </button>
+
+               
+    </div>
+
+    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript">
+        var dosbox = new Dosbox({
+            id: "dosbox",
+            onload: function (dosbox) {
+                dosbox.run("https://d32k18.github.io/games/emulation/DOSBOX/xonix/roms/Xonix.zip", "./Xonix/xonix.exe");
+            },
+            onrun: function (dosbox, app) {
+                console.log("App '" + app + "' is runned");
+            }
+        });
+    </script>
+</body>
+
+</html>
