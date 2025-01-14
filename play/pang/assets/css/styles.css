@@ -1,0 +1,174 @@
+.body-container {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  margin: auto;
+}
+
+.body-header {
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-icon-list {
+  display: flex;
+  /* flex-direction: column; */ 
+  /* margin-top: 50px; */
+  height: 100%;
+  justify-content: space-around;
+  margin-right: 100px;
+}
+
+.footer-icon {
+  width: 50px;
+  height: 50px;
+  font-size: 40px;
+  color: rgb(142, 221, 251);
+  border: 1px solid rgb(142, 221, 251);
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-icon:hover {
+  color: #000;
+  background-color: rgb(142, 221, 251);
+}
+
+.game {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+}
+
+.game-and-score {
+  display: flex;
+  flex-direction: column;
+  font-family: VT323;
+}
+
+.score {
+  padding-right: 150px;
+  padding-top: 200px;
+}
+
+.canvas-wrap {
+  /* display: none; */
+  display: flex;
+  margin: auto;
+  visibility: hidden;
+}
+canvas{
+  z-index: 1;
+  margin-left: 23px;
+  margin-top: 32px;
+}
+
+.background {
+  position: absolute;
+  z-index: 0;
+  background-image: url("../Backgrounds.png");
+  width: 1250px;
+  height: 867px;
+  background-position: -28px -32px;
+  /* background-position: -28px -932px; */
+  /* background-position: -28px -1832px; */
+  /* background-position: -28px -2732px; */
+  /* background-position: -28px -3632px; */
+  /* background-position: -28px -4532px; */
+  /* background-position: -1310px -32px;  */
+  background-repeat: no-repeat;
+  vertical-align: bottom;
+  overflow: hidden;
+  background-size: 207% 2605%;
+}
+
+#splash-gif {
+  display: none;
+}
+
+.instructions-container {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(16, 16, 16);
+  /* background-color: rgba(129, 150, 158, 0.9); */
+  color: rgb(255, 253, 58);
+  position: absolute;
+  z-index: 2;
+  /* top: 196px;
+  left: 350px; */
+  visibility: visible;
+  display: flex;
+  justify-content: center;
+
+}
+
+.instructions-box {
+  font-family: VT323;
+}
+
+.instructions-box h1 {
+  font-size: 250px;
+}
+
+.instructions-box h2 {
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.how-to-play {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.how-to-play p {
+  font-size: 50px;
+}
+
+.pang-keys {
+  height: 200px;
+  width: 700px;
+  display: flex;
+}
+
+.keys-img {
+  width: 300px;
+}
+
+.pang-instructions {
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 35px;
+}
+
+.pang-instructions-list {
+  margin-top: 25px;
+}
+
+.pang-instructions-list li{
+  margin: 20px 0;
+}
+
+.pang-splash {
+  height: 500px;
+  width: 800px;
+  z-index: 3;
+}
+
+.score-lives {
+  margin-top: 40px;
+  font-size: 30px;
+  z-index: 4;
+  color: white;
+  width: 1200px;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
