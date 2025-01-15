@@ -681,9 +681,9 @@ function fullscreen() {
 // Load the json profile selected
 async function loadjson(name, active_item) {
   if (name == 'preview') {
-    var url = '/user/hashes/preview.json';
+    var url = 'https://d32k18.github.io/games/emulation/DOSBOX/pang/user/hashes/preview.json';
   } else {
-    var url = '/user/config/arcade/' + name + '.json';
+    var url = 'https://d32k18.github.io/games/emulation/DOSBOX/pang/user/config/arcade/' + name + '.json';
   }
   let response = await fetch(url,Init);
   let data = await response.json();
