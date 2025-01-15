@@ -1,0 +1,861 @@
+<html class="" lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>Pang (World)</title>
+    <link rel="stylesheet" href="https://www.retrogames.cc/css/app.css?202005">
+
+    
+    <script src="https://d32k18.github.io/games/emulation/DOSBOX/pang/jquery.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> -->
+
+    <!-- <link rel="manifest" href="/manifest.json"> -->
+    <meta name="application-name" content="RetroGames">
+    <meta name="theme-color" content="#e96969">
+    <style>
+    [type=text], [type=password], [type=date], [type=datetime], [type=datetime-local], [type=month], [type=week], [type=email], [type=number], [type=search], [type=tel], [type=time], [type=url], [type=color], textarea{margin-bottom:0}
+    
+    .reveal#loadStates .title {font-size:18px;}
+    div#loadStates ul{color: #fff;background: transparent;font-size: 14px;border: none;padding: 10px;}
+    div#loadStates ul li{display:inline-block}
+    div#loadStates ul li a{color: #fff;padding: 5px 10px;background:#333}
+    div#loadStates ul li a.active{background: #151515;}
+    div#loadStates .tab-contents{height: calc(100% - 90px);overflow:auto}
+    div#loadStates .tab-contents .content{display:none;height: 100%;margin:0}
+    div#loadStates .tab-contents .content.active{display:block}
+    .drag-drop-inside{height: 100%;margin: 0;border: 2px dashed;display: flex;align-items: center;text-align: center;padding:30px 0;justify-content: center;flex-direction: column;}
+    .drag-drop-inside p{margin: 1px;}
+    .is-dragover {background-color: rgba(128,128,128,0.2);}
+    input[type=radio] + .customLabel:before{content: " ";border: none;}
+    input[type=radio]:checked + .customLabel:before{content:"\f00c"}
+    thead th, thead td, tfoot th, tfoot td{padding:0}
+    .state-item-db .del{display: block;border: 1px solid #ccc;text-align: center;}
+
+    .save-state-process, .save-state-process .circle, .save-state-process .percent{position: absolute;width: 50px;height: 50px;border-radius: 50%;}
+	.save-state-process{bottom:60px;left:10px;background-color: transparent;}
+	.save-state-process .circle{box-sizing: border-box;border:5px solid transparent;clip:rect(0,50px,50px,25px);}
+	.save-state-process .clip-auto{clip:rect(auto, auto, auto, auto);}
+	.save-state-process .percent{box-sizing: border-box;top:-5px;left:-5px;}
+	.save-state-process .left{transition:transform ease;border:5px solid #ff5b5b;clip: rect(0,25px,50px,0);}
+	.save-state-process .right{border:5px solid #ff5b5b;clip: rect(0,50px,50px,25px);}
+	.save-state-process .wth0{width:0;}
+	.save-state-process .num{
+        color:#fff;
+		position: absolute;
+		box-sizing: border-box;width: 40px;height: 40px;line-height: 40px;text-align: center;font-size: 12px;left: 5px;top: 5px;border-radius: 50%;background:transparent;z-index: 1;}
+    .download-state-process{
+        position: absolute !important;display: none;
+        bottom: 70px;
+        max-width: 100px;
+        right: 40px;
+    }
+    .download-state-process .percent{width: 100%;background: #000;position: absolute;height: 0;top: 0;opacity: 0.5;}
+    .download-state-process .cancel{
+        position: absolute;
+        left: 0;
+        color: #000;
+        width: 100%;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgb(204 204 204 / 0.8);
+        text-transform: uppercase;
+        font-size: 14px;
+    }
+    
+    </style>
+<meta class="foundation-mq"><meta id="ConnectiveDocSignExtentionInstalled" name="ConnectiveDocSignExtentionInstalled" data-extension-version="1.0.4"><style type="text/css" data-fbcssmodules="css:fb.css.base css:fb.css.dialog css:fb.css.iframewidget">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0px;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:'lucida grande', tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0px;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:'lucida grande', tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_dialog_advanced{border-radius:8px;padding:10px}.fb_dialog_content{background:#fff;color:#373737}.fb_dialog_close_icon{background:url(https://connect.facebook.net/rsrc.php/v4/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{left:5px;right:auto;top:5px}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://connect.facebook.net/rsrc.php/v4/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://connect.facebook.net/rsrc.php/v4/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://connect.facebook.net/rsrc.php/v4/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{height:100%;left:0px;margin:0px;overflow:visible;position:absolute;top:-10000px;transform:none;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://connect.facebook.net/rsrc.php/v4/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{background:none;height:auto;min-height:initial;min-width:initial;width:auto}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{clear:both;color:#fff;display:block;font-size:18px;padding-top:20px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .4);bottom:0;left:0;min-height:100%;position:absolute;right:0;top:0;width:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_mobile .fb_dialog_iframe{position:sticky;top:0}.fb_dialog_content .dialog_header{background:linear-gradient(from(#738aba), to(#2c4987));border-bottom:1px solid;border-color:#043b87;box-shadow:white 0px 1px 1px -1px inset;color:#fff;font:bold 14px Helvetica, sans-serif;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0px -1px 0px;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:linear-gradient(from(#4267B2), to(#2a4887));background-clip:padding-box;border:1px solid #29487d;border-radius:3px;display:inline-block;line-height:18px;margin-top:3px;max-width:85px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{background:none;border:none;color:#fff;font:bold 12px Helvetica, sans-serif;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0px -1px 0px}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://connect.facebook.net/rsrc.php/v4/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #4a4a4a;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f5f6f7;border:1px solid #4a4a4a;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://connect.facebook.net/rsrc.php/v4/yD/r/t-wz8gw1xG1.png);background-position:50% 50%;background-repeat:no-repeat;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}</style></head>
+<body style="background-color: #000;width:100%;height:100%">
+
+<script>
+    if (window.top == window) {
+        document.write('Loading...');
+        document.location.href = 'https://www.retrogames.cc/arcade-games/pang-world.html';
+    }
+</script>
+
+<div style="width:auto;height:100%;max-width:100%;margin:0 auto;overflow:hidden">
+    <div id="game" style="height: 100%;"><iframe id="ejs-content-frame" width="100%" height="100%" border="0" frameborder="no" style="width:100%; height:100%; margin:0; padding:0" scrolling="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" allow="microphone" src="https://www.emulatorjs.com/embed/content.html"></iframe>
+    <div style="text-align:center">
+    <!-- <SCRIPT language="Javascript">
+    var cpmstar_rnd=Math.round(Math.random()*999999);
+    var cpmstar_pid=78097;
+    document.writeln("<SCR"+"IPT language='Javascript' src='//server.cpmstar.com/view.aspx?poolid="+cpmstar_pid+"&script=1&rnd="+cpmstar_rnd+"'></SCR"+"IPT>");
+    </SCRIPT> -->
+    <p style="margin-top: calc(50vh - 20px);font-size:30px">Loading...</p>
+    </div>
+    </div>
+    <div class="save-state-process" style="position: absolute !important;;display: none;">
+        
+        <div class="circle">
+            <div class="percent left"></div>
+            <div class="percent right wth0"></div>
+        </div>
+        <div class="num"><span>0</span>%</div>
+        
+    </div>
+    <div class="download-state-process">
+        <img src="">
+        <div class="percent"></div>
+        <a href="#" class="cancel">Cancel</a>
+    </div>
+
+    
+    
+
+    
+</div>
+
+
+
+<script src="https://www.retrogames.cc/bower_components/foundation-sites/dist/foundation.js"></script>
+<script src="https://www.retrogames.cc/js/jquery.toast.min.js?v=1" type="text/javascript"></script>
+<script src="https://www.retrogames.cc/js/jquery.loading.min.js" type="text/javascript"></script>
+<script src="https://www.retrogames.cc/js/jsziptools.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/idb@8.0.0/build/umd.min.js" type="text/javascript"></script>
+<script>
+    
+    var stateDB = null;
+        (async function() {
+            stateDB = await idb.openDB('retrogames-states', 14, {
+                upgrade(db, oldVersion, newVersion, transaction, event) {
+                    let store;
+                    if (!db.objectStoreNames.contains('states')) {
+                        store = db.createObjectStore('states', {
+                            keyPath: 'id',
+                            autoIncrement: true,
+                        });
+                    } else {
+                        store = transaction.store;
+                    }
+                    if (!store.indexNames.contains('game_id')) {
+                        store.createIndex('game_id', 'game_id');
+                    }
+
+                    if (store.indexNames.contains('screen')) {
+                        store.deleteIndex('screen');
+                    }
+                    
+                    if (store.indexNames.contains('state')) {
+                        store.deleteIndex('state');
+                    }
+                },
+                blocked(currentVersion, blockedVersion, event) {
+                },
+                blocking(currentVersion, blockedVersion, event) {
+                },
+                terminated() {
+                },
+            });
+        })();
+</script>
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script> -->
+<script>
+    var lskeys = Object.keys(localStorage);
+    if (lskeys.length > 50) {
+        lskeys.forEach(function(key) {
+            if (key.substr(0, 10) == 'st_shares_') {
+                localStorage.removeItem(key);
+            }
+        });
+    }
+</script>
+<script>
+
+    var isLoggedIn = false;
+    var saveLocation = '';
+
+    var loadState = null;
+    var gCurrentDisc = null;
+
+    var stringToUintArray = function( str ) {
+        var buf = new Int32Array( str.length );
+        for ( var i=0, strLen = str.length; i<strLen; i++ ) {
+            buf[i] = str.charCodeAt(i) | 0;
+        }
+        return buf;
+    };
+    var uintArrayToString = function( uintArray ) {
+        if ( !( uintArray instanceof Int32Array ) ) {
+            throw new Error( 'uintArrayToString: Only accepts Int32Array parameter' );
+        }
+        var str = '';
+        for ( var i=0, strLen = uintArray.length; i<strLen; i++ ) {
+            var saveValue = uintArray[i];
+            if ( saveValue > 0xFFFF ) {
+                throw new Error( "Invalid value attempted to be serialised" );
+            }
+            str += String.fromCharCode( saveValue );
+        }
+        return str;
+    };
+    
+    var gameArea = function() {
+        return $('.ejs--7a5f920ceffb2913f6dbda780573cf').length ? $('.ejs--7a5f920ceffb2913f6dbda780573cf') : $('#game');
+    };
+    $(document.body).on('keydown', function(e) {
+        if (e.keyCode >= 38 && e.keyCode <= 40) {
+            e.stopPropagation();
+            return false;
+        }
+    });
+    $(function() {
+        $(document).foundation();
+        window.loginModal = $('#loginModal');
+        window.loadModal = $('#loadStates');
+        window.dialogModal = $('#dialogModal');
+        $('.fb-login').click(function() {
+            if (!FB) return false;
+            var form = $(this).closest('.login-form');
+            if (form.length) {
+                form.loading();
+            }
+
+            FB.login(function(response) {
+                if (form.length) {
+                    form.loading('stop');
+                }
+                if (loginModal.is(':visible')) {
+                    loginModal.loading();
+                }
+                if (response['status'] == 'connected') {
+                    $.post('/ajax/oauth-login?from=facebook', {'access_token':response['authResponse']['accessToken']}, function(ret) {
+                        if (loginModal.is(':visible')) {
+                            loginModal.foundation('close');
+                            loginModal.loading('stop');
+                        }
+                        if (ret.status == 1) {
+                            $('.top-button').html(ret.menu);
+                            loginModal.foundation('close');
+                            // if (typeof Game != 'undefined') Game.isLoggedIn = true;
+                            $(window).trigger('user.loginSuccess');
+                            isLoggedIn = true;
+                        } else {
+                            $.toast({
+                                text: 'Failed',
+                                beforeShow: function () {
+                                    
+                                        $('.jq-toast-wrap').appendTo(gameArea());
+                                    
+                                }
+                            });
+                        }
+                    }, 'json');
+                }
+            }, {scope: 'public_profile,email', 'auth_type':'rerequest'});
+        });
+
+        $('.login-form [type=submit]').click(function() {
+            var form = $(this).closest('.login-form');
+            var username = form.find('[name=_username]').val();
+            var password = form.find('[name=_password]').val();
+            var remember_me = form.find('[name=_remember_me]').val();
+            if (loginModal.is(':visible')) {
+                loginModal.loading();
+            } else {
+                form.loading();
+            }
+            $.post('/ajax/login', {"_username":username, "_password":password, "_remember_me":remember_me}, function(ret) {
+                if (loginModal.is(':visible')) {
+                    loginModal.loading('stop');
+                } else {
+                    form.loading('stop');
+                }
+                if (ret.status == 1) {
+                    $('.top-button').html(ret.menu);
+                    loginModal.foundation('close');
+                    // if (typeof Game != 'undefined') Game.isLoggedIn = true;
+
+                    $(window).trigger('user.loginSuccess');
+                    isLoggedIn = true;
+                } else if (ret.error) {
+                    $.toast({
+                        text: ret.error,
+                        beforeShow: function () {
+                            
+                                $('.jq-toast-wrap').appendTo(gameArea());
+                            
+                        }
+                    });
+                }
+            }, 'json');
+            return false;
+        });
+
+
+        loadModal.on('closed.zf.reveal', function() {
+            loadModal.loading('stop');
+        });
+        loadModal.on('open.zf.reveal', function() {
+            $(window).trigger('resize');
+            loadModal.find('ul.tabs a.active').trigger('click');
+        });
+
+        loadModal.on('click', '.state-item img', function() {
+            var id = $(this).data('id');
+            var url = $(this).data('url');
+            var img = $(this).attr('src');
+            
+            // loadModal.loading();
+            if (url) {
+                loadModal.foundation('close');
+                downloadState(id, url, img);
+            } else {
+                $.ajax({
+                    type: 'POST',
+                    url: '/ajax/get-state',
+                    data: {
+                        id: id
+                    },
+                    success: function(ret) {
+                        var url = ret['url'];
+                        loadModal.foundation('close');
+                        downloadState(id, url, img);
+                    },
+                    complete: function() {
+                    }
+                });
+            }
+        });
+        loadModal.on('click', '.state-item .del', function() {
+            var id = $(this).data('id');
+            var self = $(this);
+            
+            
+            confirm("Are you sure?","", function() {
+            
+                $.post('/ajax/del-state', {'id':id}, function(ret) {
+                    self.closest('.state-item').remove();
+                });
+            });
+                    });
+
+        loadModal.on('click', '.state-item-db img', async function() {
+            var id = $(this).data('id');
+
+            let store = stateDB.transaction('states', 'readwrite').objectStore('states');
+            let state = await store.get(id);
+            if (state) {
+                loadState(jz.zlib.decompress(state.state));
+                loadModal.loading('stop');
+                loadModal.foundation('close');
+            }
+        });
+        
+        loadModal.on('click', '.state-item-db .del', function() {
+            var id = $(this).data('id');
+            var self = $(this);
+            confirm("Are you sure?","", async function() { 
+                let store = stateDB.transaction('states', 'readwrite').objectStore('states');
+                await store.delete(id);
+                getStatesFromDB();
+            });
+        });
+
+
+
+        loadModal.on('loading.start', function() {
+            
+            $('.loading-overlay').appendTo(gameArea());
+            
+        });
+        
+        loadModal.on('click', 'ul.tabs li', function() {
+            var index = loadModal.find(' ul.tabs li').index(this);
+            
+            loadModal.find('.tabs li a').removeClass('active');
+            loadModal.find('.tabs li:eq('+index+') a').addClass('active');
+            loadModal.find('.tab-contents .content').removeClass('active');
+            loadModal.find('.tab-contents .content:eq('+index+')').addClass('active');
+            if (index == 1) {
+                getStatesFromDB();
+            } else if (index == 2) {
+                getStatesFromServer();
+            }
+
+            return false;
+        });
+
+        
+
+
+        var downloadState = function(id, url, img) {
+            $('.download-state-process .percent').css('height', 0);
+            $('.download-state-process img').attr('src', img);
+            $('.download-state-process').show();
+            $('.download-state-process .cancel').unbind('click');
+            var req = $.ajax({
+                xhr: function () {
+                    var xhr = new window.XMLHttpRequest();
+                    xhr.addEventListener("progress", function(evt) {
+                        if (evt.loaded > 0) {
+                            var percentComplete = evt.loaded / evt.total;
+                            $('.download-state-process .percent').css('height', (percentComplete * 100).toFixed(2) + '%');
+                        }
+                    }, false);
+                    return xhr;
+                },
+                type: 'GET',
+                url: url,
+                data: {},
+                xhrFields : {
+                    responseType: 'arraybuffer'
+                },
+                complete: function(jqXHR) {
+                    $('.download-state-process').hide();
+                },
+                success: function(data) {
+                    var state = new Uint8Array(data);
+                    // zlib
+                    if (state[0] == 0x78) {
+                        if ((state[1] == 0x01 || state[1] == 0x5E || state[1] == 0x9c || state[1] == 0xDA)) {
+                            loadState(jz.zlib.decompress(state));
+                        } else {
+                            // Old version state
+                            var f = new Blob([state], {type:"application/octet-stream"});
+                            var fr = new FileReader();
+                            fr.onload = function() {
+                                var data = new Uint8Array(stringToUintArray(fr.result));
+                                if (data[0] == 0x78 && (data[1] == 0x01 || data[1] == 0x5E || data[1] == 0x9c || data[1] == 0xDA)) {
+                                    var decomressData = jz.zlib.decompress(data);
+                                    loadState(decomressData);
+                                } else {
+                                    loadState(state);
+                                }
+                            };
+                            fr.readAsText(f);
+                        }
+                    } else {
+                        loadState(state);
+                    }
+                    $('.download-state-process').hide();
+                },
+                error: function(xhr, status, error) {
+                    console.log(error);
+                }
+            });
+            
+            $('.download-state-process .cancel').on('click', function() {
+                req.abort();
+                $('.download-state-process').hide();
+                return false;
+            });
+        };
+
+        var stateloadField;
+        var stateloadFieldChange = function(event) {
+            var files = event.target.files;
+            var filereader;
+            if (files.length > 0) {
+                filereader = new FileReader();
+                filereader.file_name = files[0].name;
+                filereader.onload = function() {
+                    var state = new Uint8Array(filereader.result);
+                    
+                    // zlib
+                    if (state[0] == 0x78) {
+                        if ((state[1] == 0x01 || state[1] == 0x5E || state[1] == 0x9c || state[1] == 0xDA)) {
+                            loadState(jz.zlib.decompress(state));
+                        } else {
+                            // Old version state
+                            var f = new Blob([state], {type:"application/octet-stream"});
+                            var fr = new FileReader()
+                            fr.onload = function() {
+                                var data = new Uint8Array(stringToUintArray(fr.result));
+                                if (data[0] == 0x78 && (data[1] == 0x01 || data[1] == 0x5E || data[1] == 0x9c || data[1] == 0xDA)) {
+                                    var decomressData = jz.zlib.decompress(data);
+                                    loadState(decomressData);
+                                } else {
+                                    loadState(state);
+                                }
+                            }
+                            fr.readAsText(f);
+                        }
+                    } else {
+                        loadState(state);
+                    }
+        
+                };
+                filereader.readAsArrayBuffer(files[0]);
+            }
+            stateloadField = document.createElement('input');
+            stateloadField.type = 'file';
+            stateloadField.onchange = stateloadFieldChange;
+        };
+        stateloadField = document.createElement('input');
+        stateloadField.type = 'file';
+        stateloadField.onchange = stateloadFieldChange;
+
+        $('#file-browse-button').click(function() {
+            stateloadField.click();
+            return false;
+        });
+
+        $('.drag-drop-inside').on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }).on('dragover dragenter', function() {
+            $('.drag-drop-inside').addClass('is-dragover');
+        })
+        .on('dragleave dragend drop', function() {
+            $('.drag-drop-inside').removeClass('is-dragover');
+        })
+        .on('drop', function(e) {
+            var files = e.originalEvent.dataTransfer.files;
+            filereader = new FileReader();
+            filereader.file_name = files[0].name;
+            filereader.onload = function() {
+                var state = new Uint8Array(filereader.result);
+                // zlib
+                if (state[0] == 0x78) {
+                    if ((state[1] == 0x01 || state[1] == 0x5E || state[1] == 0x9c || state[1] == 0xDA)) {
+                        loadState(jz.zlib.decompress(state));
+                    } else {
+                        // Old version state
+                        var f = new Blob([state], {type:"application/octet-stream"});
+                        var fr = new FileReader()
+                        fr.onload = function() {
+                            var data = new Uint8Array(stringToUintArray(fr.result));
+                            if (data[0] == 0x78 && (data[1] == 0x01 || data[1] == 0x5E || data[1] == 0x9c || data[1] == 0xDA)) {
+                                var decomressData = jz.zlib.decompress(data);
+                                loadState(decomressData);
+                            } else {
+                                loadState(state);
+                            }
+                        }
+                        fr.readAsText(f);
+                    }
+                } else {
+                    loadState(state);
+                }
+            };
+            filereader.readAsArrayBuffer(files[0]);
+        });
+
+    });
+    EJS_player = '#game';
+    EJS_gameUrl = 'https://d32k18.github.io/games/emulation/DOSBOX/pang/roms/pang.zip';
+        EJS_core = 'arcade';
+    EJS_biosUrl = 'https://d32k18.github.io/games/emulation/DOSBOX/pang/bios/arcade.7z';
+    EJS_onGameStart = function() {
+        console.log('start');
+        $.post('/ajax/start-game', {id:9419, rid:0}, function(ret) {});
+
+        $('.reveal-overlay, .reveal.without-overlay').appendTo(gameArea());
+    };
+    var saving = 0;
+    var rememberSave = 0;
+
+    var URL = window.URL || window.webkitURL || window.mozURL;
+
+
+    var confirm = function(title, message, callback) {
+		var modal = '<div class="reveal tiny" id="confirmation">'+
+			     		'<h1 class="title" style="font-size:18px">'+title+'</h1>'+
+			   		'<p class="lead">'+message+'</p>'+
+         			    '<button class="button primary submit tiny yes">Yes</button>'+
+			    		'<button class="button tiny cancel float-right" data-close>No</button>'+
+		       		'</div>';
+        
+        gameArea().append(modal);
+		var confirmation = new Foundation.Reveal($('#confirmation'), {multipleOpened:true});
+        $('#confirmation').closest('.reveal-overlay').appendTo(gameArea());
+
+		confirmation.open();
+    
+		$('#confirmation').children('.yes').on('click', function() {
+			confirmation.close();
+			$('#confirmation').remove();
+      	    callback.call();
+    	});
+	};
+    $(document).on('closed.zf.reveal', '#confirmation', function() {
+        $('#confirmation').remove();
+    });
+    
+    $(document).on('open.zf.reveal', '#confirmation', function() {
+        $('#confirmation').closest('.reveal-overlay').appendTo(gameArea());
+    });
+
+    
+
+    var getStatesFromDB = async function() {
+        let states = await stateDB.getAllFromIndex('states', 'game_id', 9419);
+        var content = loadModal.find('.content:eq(1)').text('');
+        
+        $.each(states.reverse(), function(i, state) {
+            var screenshot_url = URL.createObjectURL(new Blob([state['screen']]));
+            var el = $('<div />').addClass('state-item-db large-3 medium-4 small-4 columns');
+            var inner = $('<div />').addClass('state-item-inner')
+                .append('<a><img data-id="'+state['id']+'" src="'+ screenshot_url +'"></a>')
+                .append('<p><a class="del" data-id="'+state['id']+'">Delete</a></p>');
+
+            el.append(inner).appendTo(content);
+        });
+        
+        if (states.length == 0) {
+            content.html('No save state files found');
+        }
+    };
+
+    var saveStateToDB = async function(screenshot, state) {
+        await stateDB.add('states', {game_id: 9419, 'state': state, 'screen': screenshot});
+        $.toast({
+            text : "Saved",
+            bgColor : 'rgba(0,0,0,0.5)',
+            textColor : '#fff',
+            allowToastClose : false,
+            hideAfter : 3000,
+            beforeShow: function () {
+                $('.jq-toast-wrap').appendTo(gameArea());
+            }
+        });
+
+    };
+
+    var getStatesFromServer = function() {
+        loadModal.loading();
+        var data = {'id':'9195'};
+                data['old'] = 0;
+                if (gCurrentDisc) {
+            data['current_disc'] = gCurrentDisc;
+        }
+        $.ajax({
+            type: 'POST',
+            url: '/ajax/get-states',
+            data: data,
+            dataType: 'json',
+            success: function(ret) {
+                if (ret.loggedin == 0) {
+
+                    loadModal.find('ul.tabs li:eq(0)').trigger('click');
+
+                    loginModal.foundation('open');
+                    return false;
+                }
+
+                var states = ret['data'];
+                var content = loadModal.find('.content:eq(2)').text('');
+                $.each(states, function(i, state) {
+                    var el = $('<div />').addClass('state-item large-3 medium-4 small-4 columns');
+                    var inner = $('<div />').addClass('state-item-inner')
+                        .append('<a><img data-url="'+state['url']+'" data-id="'+state['id']+'" src="'+state['screenshot']+'"></a>')
+                        .append('<p>' + state['date'] + '<br /><a class="del" data-id="'+state['id']+'">Delete</a></p>');
+
+                    el.append(inner).appendTo(content);
+                });
+                
+                if (states.length == 0) {
+                    content.html('No save state files found');
+                }
+                loadModal.loading('stop');
+            },
+            complete: function() {
+                loadModal.loading('stop');
+            }
+        });
+    };
+
+    var saveStateToServer = function(screenshot, state, currentDisc) {
+        
+        var formdata = new FormData();
+        formdata.append("id", '9195');
+        formdata.append("screen", new Blob([screenshot], {type:"application/octet-stream"}));
+        formdata.append("state_file", new Blob([state], {type:"application/octet-stream"}));
+        if (currentDisc) {
+            formdata.append("current_disc", currentDisc);
+        }
+
+        if (!isLoggedIn) {
+            loginModal.foundation('open');
+            return ;
+        }
+
+        
+        $('.save-state-process').appendTo(gameArea());
+        
+
+        var xhr = new XMLHttpRequest();
+        xhr.upload.addEventListener("progress", function (evt) {
+            if (evt.lengthComputable) {
+                var percent = Math.round(evt.loaded * 100 / evt.total);
+                $('.save-state-process').show();
+
+                if(percent>100){
+                    percent=0;
+                    $('.save-state-process .circle').removeClass('clip-auto');
+                    $('.save-state-process .right').addClass('wth0');
+                }else if(percent>50){
+                    $('.save-state-process .circle').addClass('clip-auto');
+                    $('.save-state-process .right').removeClass('wth0');
+                }
+                $('.save-state-process .left').css("-webkit-transform","rotate("+(18/5)*percent+"deg)").css("transform","rotate("+(18/5)*percent+"deg)");
+                $('.save-state-process .num>span').text(percent);
+
+                
+            } else {}
+        }, false);
+        xhr.addEventListener("load", function (evt) {
+            var ret = JSON.parse(evt.target.responseText);
+
+
+            $('.save-state-process').hide();
+            if (ret.loggedin == 0) {
+                loginModal.foundation('open');
+            } else {
+                $(self).removeClass('disabled');
+                // t.reset();
+                if (ret.status == 0) {
+                    $.toast({
+                        text: 'Failed',
+                        showHideTransition: 'fade',
+                        icon: 'error',
+                        beforeShow: function () {
+                            
+                                $('.jq-toast-wrap').appendTo(gameArea());
+                            
+                        }
+                    });
+                } else {
+                    $.toast({
+                        text : "Saved",
+                        bgColor : 'rgba(0,0,0,0.5)',
+                        textColor : '#fff',
+                        allowToastClose : false,
+                        hideAfter : 3000,
+                        beforeShow: function () {
+                            
+                                $('.jq-toast-wrap').appendTo(gameArea());
+                            
+                        }
+                    });
+                }
+            }
+            saving = 0;
+        }, false);
+        xhr.addEventListener("error", function() {
+            $('.save-state-process').hide();
+            $(self).removeClass('disabled');
+            $.toast({
+                text: 'Failed',
+                showHideTransition: 'fade',
+                icon: 'error',
+                beforeShow: function () {
+                            
+                                $('.jq-toast-wrap').appendTo(gameArea());
+                            
+                }
+            });
+            saving = 0;
+        }, false);
+        xhr.open("POST", "/ajax/save-state");
+        xhr.send(formdata);
+
+
+
+    };
+
+    var saveStateToLocal = function(screenshot, state) {
+        if (typeof saveAs != 'undefined') {
+            saveAs(new Blob([state], {type:"application/octet-stream"}), 'pang.save');
+        }
+    };
+
+
+    EJS_onSaveState = function(data) {
+        if (saving) {
+            return false;
+        }
+        saving = 1;
+        // var state = jz.zlib.compress(data.state);
+        // var screenshot = data.screenshot;
+        // console.log(state.length);
+        var f = new Blob([data.state], {type:"application/octet-stream"});
+        var fr = new FileReader();
+        fr.onload = function() {
+            var state = jz.zlib.compress(new Uint8Array(fr.result));
+            var screenshot = data.screenshot;
+            let currentDisc = data.current_disc;
+            
+            if (rememberSave && saveLocation) {
+                if (saveLocation == 'file') {
+                    saveStateToLocal(screenshot, state);
+                    saving = false;
+                } else if (saveLocation == 'indexeddb') {
+                    saveStateToDB(screenshot, state);
+                    saving = false;
+                } else if (saveLocation == 'server') {
+                    saveStateToServer(screenshot, state, currentDisc);
+                }
+            } else {
+            
+                dialogModal.foundation('open');
+                dialogModal.find('h1.title').text('Save to');
+                dialogModal.find('.content').html(
+                    '<p><input id="state_saveto_file" type="radio" value="file" name="saveto" /><label class="customLabel" for="state_saveto_file"><span>Local File</span></label></p>'+
+                    '<p><input id="state_saveto_indexeddb" checked type="radio" value="indexeddb" name="saveto" /><label class="customLabel" for="state_saveto_indexeddb"><span>Browser Storage</span></label></p>' +
+                    (state.length < 2.5*1024*1024 ? '<p><input id="state_saveto_server" type="radio" value="server" name="saveto" /><label class="customLabel" for="state_saveto_server"><span>Server</span></label></p>' : '') +
+                    '<p><input type="checkbox" id="check_remember_saveto" name="remember_saveto" value="1" /><label for="check_remember_saveto" class="customLabel">Don\'t ask me again</label></p>');
+
+                
+                                dialogModal.find('.actions .submit').one('click', function() {
+                    var saveto = dialogModal.find('[name=saveto]:checked').val();
+                    rememberSave = dialogModal.find('[name=remember_saveto]:checked').val();
+                    saveLocation = saveto;
+                    if (rememberSave == 1) {
+                        // localStorage.setItem('save_location', saveto);
+                    }
+                    if (saveto == 'file') {
+                        saveStateToLocal(screenshot, state);
+                        saving = false;
+                    } else if (saveto == 'indexeddb') {
+                        saveStateToDB(screenshot, state);
+                        saving = false;
+                    } else if (saveto == 'server') {
+                        saveStateToServer(screenshot, state, currentDisc);
+                    }
+                });
+
+                dialogModal.on('closed.zf.reveal', function() {
+                    saving = false;
+                    dialogModal.find('.actions .submit').off('click');
+                });
+            }
+        
+        };
+        fr.readAsArrayBuffer(f);
+
+    };
+
+    EJS_onLoadState = function(loadStateFn, currentDisc) {
+        // window.loadState = this.loadState;
+        window.loadState = loadStateFn;
+        window.gCurrentDisc = currentDisc;
+        // window.xxxx = this;
+        
+        loadModal.foundation('open');
+        // console.log(this, loadState);
+        
+    };
+
+    
+</script>
+
+
+<script src="https://d32k18.github.io/games/emulation/DOSBOX/pang/loader.js" crossorigin=""></script>
+
+
+
+
+
+
+
+</body></html>
