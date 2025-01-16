@@ -38,11 +38,12 @@
             height: 100%;
         }
 
-        .fullscreen-btn {
-            display: block;
+        .fullscreen-btn,
+        .back-btn {
+            display: inline-block;
             width: 200px;
             padding: 10px;
-            margin: 20px auto;
+            margin: 20px 10px;
             background-color: #0064ff;
             color: #fff;
             font-size: 16px;
@@ -52,7 +53,8 @@
             transition: background-color 0.3s ease;
         }
 
-        .fullscreen-btn:hover {
+        .fullscreen-btn:hover,
+        .back-btn:hover {
             background-color: #0051d0;
         }
 
@@ -62,7 +64,10 @@
 
     <div class="game-container">
         <div id="game"></div>
+        <!-- Bouton plein écran -->
         <button class="fullscreen-btn" onclick="toggleFullscreen()">Passer en plein écran</button>
+        <!-- Bouton retour -->
+        <button class="back-btn" onclick="goBack()">Retour</button>
  
     <table border="0" width="100%" style="border-collapse: collapse; margin: 0;">
   <tbody>
@@ -256,7 +261,6 @@
         3: {}
     }
 
-
         function toggleFullscreen() {
             let elem = document.querySelector('.game-container');
 
@@ -268,9 +272,12 @@
                 });
             }
         }
+
+        function goBack() {
+            window.history.back();
+        }
     </script>
 
     <script src="https://d32k18.github.io/games/emulation/ARCADE/data/loader.js"></script>
 </body>
 </html>
-            
