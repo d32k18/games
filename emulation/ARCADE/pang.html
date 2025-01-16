@@ -1,26 +1,89 @@
-<html>
-    <head>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex">
+    <meta name="robots" content="noarchive">
+    <meta name="robots" content="nosnippet">
+    <meta name="robots" content="noodp">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Pang 🕹</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
 
-        <style>
-            body, html {
-                margin: 0;
-                padding: 0;
+        .game-container {
+            width: 640px;
+            height: 480px;
+            position: relative;
+            background-color: #000;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        #game {
+            width: 100%;
+            height: 100%;
+        }
+
+        .fullscreen-btn {
+            display: block;
+            width: 200px;
+            padding: 10px;
+            margin: 20px auto;
+            background-color: #0064ff;
+            color: #fff;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .fullscreen-btn:hover {
+            background-color: #0051d0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="game-container">
+        <div id="game"></div>
+        <button class="fullscreen-btn" onclick="toggleFullscreen()">Passer en plein écran</button>
+    </div>
+
+    <script>
+        EJS_player = "#game";
+        EJS_core = "arcade";
+        EJS_gameName = "pang";
+        EJS_color = "#0064ff";
+        EJS_startOnLoaded = true;
+        EJS_pathtodata = "https://d32k18.github.io/games/emulation/ARCADE/data/";
+        EJS_gameUrl = "https://d32k18.github.io/games/emulation/ARCADE/roms/pang.zip";
+
+        function toggleFullscreen() {
+            let elem = document.querySelector('.game-container');
+
+            if (document.fullscreenElement) {
+                document.exitFullscreen();
+            } else {
+                elem.requestFullscreen().catch(err => {
+                    console.error(`Erreur lors de la tentative de plein écran: ${err.message}`);
+                });
             }
-        </style>
-    </head>
-    <body>
-        <div style="width:100%;height:100%;max-width:100%">
-            <div id="game"></div>
-        </div>
-        <script>
-            EJS_player = "#game";
-            EJS_core = "arcade";
-            EJS_gameName = "pang";
-            EJS_color = "#0064ff";
-            EJS_startOnLoaded = true;
-            EJS_pathtodata = "https://d32k18.github.io/games/emulation/ARCADE/data/";
-            EJS_gameUrl = "https://d32k18.github.io/games/emulation/ARCADE/roms/pang.zip";
-        </script>
-        <script src="https://d32k18.github.io/games/emulation/ARCADE/data/loader.js"></script>
-    </body>
+        }
+    </script>
+
+    <script src="https://d32k18.github.io/games/emulation/ARCADE/data/loader.js"></script>
+</body>
 </html>
