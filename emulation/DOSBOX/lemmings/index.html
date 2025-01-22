@@ -83,18 +83,18 @@
     </div></div>
 <br>
 <button onclick="ci.fullscreen()">Make fullscreen</button>
-  <script>
-    Dos(document.getElementById("jsdos"), {
-        wdosboxUrl: "https://d32k18.github.io/games/emulation/DOSBOX/lemmings/components/wdosbox.js",
-        cycles: "max",
-        autolock: true,
+<script>
+    Dos (document.getElementById("jsdos"), { 
+      wdosboxUrl: "https://d32k18.github.io/games/emulation/DOSBOX/lemmings/components/wdosbox.js",
+      cycles: 7000,
+      autolock: true,
     }).ready(function (fs, main) {
-      fs.extract("https://d32k18.github.io/games/emulation/DOSBOX/lemmings/roms/lemmings.zip").then(function () {
-        main(["-c", "LEMMINGS.BAT"]).then(function (ci) {
-            window.ci = ci;
+      fs.extract("https://d32k18.github.io/games/emulation/DOSBOX/lemmings/roms/lemmings.zip", "/lemmings").then(function () {
+        main(["-c", "cls", "-c", "mount -u c", "-c", "mount c /lemmings", "-c", "c:", "-c", "cd lemmi", "-c", "cls", "-c", "LEMMINGS.BAT"]).then(function (ci) {
+          window.ci = ci;
         });
       });
     });
-  </script>
+</script>
 </center>
 </body></html>
