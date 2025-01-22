@@ -10,6 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS Lemmings 🕹</title>
+    <script src="components/js-dos-apiv3.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="styles/button.css">
     <style>
@@ -46,9 +47,20 @@
     </style>
 </head>
 
-<body>
-    <div class="container">
-        <div id="dosbox"></div>
+<body marginwidth="0" marginheight="0">
+  <div class="transbox">
+  </div>
+
+  <div class="dosbox-container"><canvas id="jsdos" width="640" height="350" style="image-rendering: pixelated;"></canvas><div class="dosbox-overlay" style="display: none">
+        <div class="dosbox-loader">
+            <div class="st-loader">
+                <span class="equal"></span>
+            </div>
+        </div>
+
+    </div></div>
+        
+        
         
         <!-- Bouton Fullscreen -->
         <button class="wrapper" onclick="dosbox.requestFullScreen();">
