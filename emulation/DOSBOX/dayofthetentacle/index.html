@@ -29,17 +29,34 @@
         .info-text ul {
             margin-left: 20px;
         }
+
+        /* Style pour centrer l'image sous le bouton */
+        .centered-image {
+            display: block;
+            margin: 20px auto; /* Centrer l'image horizontalement et ajouter un espacement */
+            max-width: 100%; /* Ajuste l'image à la taille de l'écran si nécessaire */
+            height: auto; /* Garder la proportion de l'image */
+        }
+
+        /* Optionnel : centrer le bouton aussi */
+        .wrapper {
+            display: block;
+            margin: 20px auto;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
         <div id="dosbox"></div>
+        
+        <!-- Bouton Fullscreen -->
         <button class="wrapper" onclick="dosbox.requestFullScreen();">
             <a><span>FULLSCREEN</span></a>
         </button>
-
-               
+        
+        <!-- Image centrée sous le bouton -->
+        <img src="https://d32k18.github.io/games/emulation/DOSBOX/dayofthetentacle/codes.gif" class="centered-image" alt="Code Image">
     </div>
 
     <script type="text/javascript" src="script.js"></script>
