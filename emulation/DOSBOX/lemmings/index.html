@@ -72,11 +72,11 @@
     <script type="text/javascript" src="script.js"></script>
     <script>
     Dos(document.getElementById("jsdos"), {
-        wdosboxUrl: "https://d32k18.github.io/games/emulation/DOSBOX/lemmings/components/wdosbox.js",
+        wdosboxUrl: "components/wdosbox.js",
         cycles: "max",
         autolock: true,
     }).ready(function (fs, main) {
-      fs.extract("https://d32k18.github.io/games/emulation/DOSBOX/lemmings/roms/Lemmings.zip").then(function () {
+      fs.extract("roms/lemmings.zip").then(function () {
         main(["-c", "LEMMINGS.BAT"]).then(function (ci) {
             window.ci = ci;
         });
