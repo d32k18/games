@@ -70,31 +70,32 @@
     </style><title>DOSBox</title></head>
     
 <body><center>
-<div class="dosbox-container"><canvas id="jsdos" width="320" height="200" style="image-rendering: pixelated;"></canvas><div class="dosbox-overlay" style="display: none">
-        <div class="dosbox-loader">
-            <div class="st-loader">
-                <span class="equal"></span>
-            </div>
-            <div class="dosbox-loader-message">Downloading dos/zip/Lemmings.zip 100%</div>
-        </div>
-        <div class="dosbox-powered">
-            Powered by &nbsp;<a href="https://js-dos.com">js-dos.com</a> (6.22)
-        </div>
-    </div></div>
-<br>
-<button onclick="ci.fullscreen()">Make fullscreen</button>
+<input type="button" value="Full screen" onclick="document.getElementById('jsdos').style.height = '100%'; document.getElementById('jsdos').style.width = '100%'; window.ci.fullscreen(true, false);">
+
 <script>
-    Dos (document.getElementById("jsdos"), { 
-      wdosboxUrl: "https://d32k18.github.io/games/emulation/DOSBOX/lemmings/components/wdosbox.js",
-      cycles: 7000,
-      autolock: true,
-    }).ready(function (fs, main) {
-      fs.extract("https://d32k18.github.io/games/emulation/DOSBOX/lemmings/roms/lemmings.zip", "/lemmings").then(function () {
-        main(["-c", "cls", "-c", "mount -u c", "-c", "mount c /lemmings", "-c", "c:", "-c", "cd lemmi", "-c", "cls", "-c", "LEMMINGS.BAT"]).then(function (ci) {
-          window.ci = ci;
-        });
-      });
-    });
+    Dos(document.getElementById("jsdos"), {
+			wdosboxUrl: "wdosbox.js",
+			autolock: true,
+			cycles: "auto"
+	}).ready(function (fs, main) {
+		fs.extract("https://d32k18.github.io/games/emulation/DOSBOX/lemmings/roms/lemmings.zip").then(function () {
+			fs.createFile("dosbox.conf", `[cpu]
+core=simple
+cputype=pentium_slow
+
+[gus]
+gus=true
+
+[autoexec]
+@ECHO OFF
+`);
+			main(["-conf", "dosbox.conf", "-c", "vgalemmi.exe -v -o"]).then(function (ci) {
+				window.ci = ci;
+			});
+		});
+	});
 </script>
+    
+
 </center>
 </body></html>
