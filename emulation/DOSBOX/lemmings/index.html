@@ -76,7 +76,7 @@
         cycles: "max",
         autolock: true,
     }).ready(function (fs, main) {
-      fs.extract("roms/lemmings.zip").then(function () {
+      fs.extract("https://d32k18.github.io/games/emulation/DOSBOX/lemmings/roms/lemmings.zip").then(function () {
         main(["-c", "LEMMINGS.BAT"]).then(function (ci) {
             window.ci = ci;
         });
