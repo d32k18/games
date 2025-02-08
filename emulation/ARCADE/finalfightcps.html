@@ -17,8 +17,9 @@
             padding: 0;
             height: 100%;
             display: flex;
-            justify-content: center;
-            align-items: flex-start;
+            flex-direction: column; /* Arrange content vertically */
+            justify-content: flex-start;
+            align-items: center;
             background-color: #f0f0f0;
             font-family: Arial, sans-serif;
         }
@@ -30,6 +31,8 @@
             background-color: #000;
             margin-top: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
         }
 
         #game {
@@ -57,83 +60,91 @@
             background-color: #0051d0;
         }
 
+        table {
+            width: 100%;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        table td {
+            padding: 4px;
+            color: white;
+        }
+
+        #game-box-iframe {
+            width: 640px;
+            height: 480px;
+            border: none;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
 
+    <button class="back-btn" onclick="goBack()">Retour</button>
 
+    <table>
+        <tbody>
+            <tr>
+                <td colspan="5" style="padding: 0;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="5" style="padding: 0; font-family: Arial, sans-serif; font-size: 12px; color: #FFFFFF;">
+                    <b>Game controls:</b>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5" style="padding: 0;">
+                    <table border="1" width="100%" style="border-collapse: collapse; margin: 0; padding: 0;">
+                        <tr>
+                            <td width="148" align="center" style="background-color: #333; color: #FFFFFF; padding: 4px;">
+                                <b>Keys</b>
+                            </td>
+                            <td style="background-color: #333; color: #FFFFFF; padding: 4px;">
+                                <b>Action</b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="148" align="center" style="padding: 4px;"><kbd>↑</kbd> <kbd>↓</kbd></td>
+                            <td style="padding: 4px;">UP / DOWN</td>
+                        </tr>
+                        <tr>
+                            <td width="148" align="center" style="padding: 4px;"><kbd>←</kbd> <kbd>→</kbd></td>
+                            <td style="padding: 4px;">LEFT / RIGHT</td>
+                        </tr>
+                        <tr>
+                            <td width="148" align="center" style="padding: 4px;"><kbd>s</kbd></td>
+                            <td style="padding: 4px;">FIGHT</td>
+                        </tr>
+                        <tr>
+                            <td width="148" align="center" style="padding: 4px;"><kbd>x</kbd></td>
+                            <td style="padding: 4px;">JUMP</td>
+                        </tr>
+                        <tr>
+                            <td width="148" align="center" style="padding: 4px;"><kbd>c</kbd></td>
+                            <td style="padding: 4px;">BUTTON 3</td>
+                        </tr>
+                        <tr>
+                            <td width="148" align="center" style="padding: 4px;"><kbd>v</kbd></td>
+                            <td style="padding: 4px;">BUTTON 4</td>
+                        </tr>
+                        <tr>
+                            <td width="148" align="center" style="padding: 4px;"><kbd>START</kbd></td>
+                            <td style="padding: 4px;">Enter</td>
+                        </tr>
+                        <tr>
+                            <td width="148" align="center" style="padding: 4px;"><kbd>SELECT</kbd></td>
+                            <td style="padding: 4px;">Shift</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
-<iframe src="https://static.arcadespot.com/retroemulator.php?system=cps1&amp;game=2017/06/ffight.zip" border="0" frameborder="0" scrolling="no" style="border: 0px; width: 640px; height: 480px;" id="game-box-iframe" allowfullscreen="allowfullscreen" allow="autoplay; fullscreen; microphone; gamepad; accelerometer; encrypted-media; gyroscope;"></iframe>
-
-        <!-- Bouton retour -->
-        <button class="back-btn" onclick="goBack()">Retour</button>
- 
-    <table border="0" width="100%" style="border-collapse: collapse; margin: 0;">
-  <tbody>
-    <tr>
-      <td colspan="5" style="padding: 0;">&nbsp;</td>
-    </tr>
-    <tr>
-      <td colspan="5" style="padding: 0; font-family: Arial, sans-serif; font-size: 12px; color: #FFFFFF;">
-        <b>Game controls:</b>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="5" style="padding: 0;">
-        <table border="1" width="100%" style="border-collapse: collapse; margin: 0; padding: 0;">
-          <tr>
-            <td width="148" align="center" style="background-color: #333; color: #FFFFFF; padding: 4px;">
-              <b>Keys</b>
-            </td>
-            <td style="background-color: #333; color: #FFFFFF; padding: 4px;">
-              <b>Action</b>
-            </td>
-          </tr>
-          <tr>
-            <td width="148" align="center" style="padding: 4px;"><kbd>↑</kbd> <kbd>↓</kbd></td>
-            <td style="padding: 4px; color: white;">UP / DOWN</td>
-          </tr>
-          <tr>
-            <td width="148" align="center" style="padding: 4px;"><kbd>←</kbd> <kbd>→</kbd></td>
-            <td style="padding: 4px; color: white;">LEFT / RIGHT</td>
-          </tr>
-          <tr>
-            <td width="148" align="center" style="padding: 4px;"><kbd>s</kbd></td>
-            <td style="padding: 4px; color: white;">FIGHT</td>
-          </tr>
-          <tr>
-            <td width="148" align="center" style="padding: 4px;"><kbd>x</kbd></td>
-            <td style="padding: 4px; color: white;">JUMP</td>
-          </tr>
-          <tr>
-            <td width="148" align="center" style="padding: 4px;"><kbd>c</kbd></td>
-            <td style="padding: 4px; color: white;">BUTTON 3</td>
-          </tr>
-          <tr>
-            <td width="148" align="center" style="padding: 4px;"><kbd>v</kbd></td>
-            <td style="padding: 4px; color: white;">BUTTON 4</td>
-          </tr>
-          <tr>
-            <td width="148" align="center" style="padding: 4px;"><kbd>START</kbd></td>
-            <td style="padding: 4px; color: white;">Enter</td>
-          </tr>
-          <tr>
-            <td width="148" align="center" style="padding: 4px;"><kbd>SELECT</kbd></td>
-            <td style="padding: 4px; color: white;">Shift</td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-  </tbody>
-</table>
-    
-    
-
-
-
-
-
-
+    <div class="game-container">
+        <iframe src="https://static.arcadespot.com/retroemulator.php?system=cps1&amp;game=2017/06/ffight.zip" id="game-box-iframe" allowfullscreen="allowfullscreen" allow="autoplay; fullscreen; microphone; gamepad; accelerometer; encrypted-media; gyroscope;"></iframe>
+    </div>
 
 </body>
 </html>
