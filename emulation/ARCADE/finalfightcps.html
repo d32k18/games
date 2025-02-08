@@ -130,15 +130,37 @@
     
     </div>
 
+  <script>
 
-    <script>
-        EJS_player = "#game";
-        EJS_core = "cps1";
-        EJS_gameName = "Final Fight";
-        EJS_color = "#0064ff";
-        EJS_startOnLoaded = true;
-        EJS_pathtodata = "https://d32k18.github.io/games/emulation/ARCADE/data/";
-        EJS_gameUrl = "https://d32k18.github.io/games/emulation/ARCADE/roms/ffight.zip";
+  //var neogeoBios = " bios file url";
+  NepEmu = 'cps1';
+  if ((NepEmu == 'neogeo')){
+     var neogeoBios = "";
+  }
+  var NepZoom = "enable";
+  // Add extra button on toolbar to scale up emulator to 100% width. Disabled by default
+  //var NepAutoStart = true;
+  var NepMaxWidth = '100%';
+  var NepPlayer = "#play";
+  // ID of html element where emulator will be inserted
+
+  var NepEmu = "cps1";
+  // Platform select
+
+  var NepLang = "en";
+  // Option "en,rus,ptBR,ja"
+  // Interface language of emulator. EN by default
+
+  var gameUrl = "https://d32k18.github.io/games/emulation/ARCADE/roms/ffight.zip"; // Game Url
+
+  var boxartimg ='<img src="" />';
+  var NjsScript=document.createElement( 'script' );
+
+  NjsScript.src="https://mem.neptunjs.com/njs/njsLoader.js";
+
+  document.body.appendChild(NjsScript)
+
+ 
 
         function toggleFullscreen() {
             let elem = document.querySelector('.game-container');
