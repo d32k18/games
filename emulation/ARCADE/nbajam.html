@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex">
+    <meta name="robots" content="noarchive">
+    <meta name="robots" content="nosnippet">
+    <meta name="robots" content="noodp">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="data/kbd.css">
+    <title>NBA JAM 🕹</title>
+    <style>
+        body, html {
+            background-image: url('../../thumbnail/bg.png');
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .game-container {
+            width: 640px;
+            height: 480px;
+            position: relative;
+            background-color: #000;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        #game {
+            width: 100%;
+            height: 100%;
+        }
+
+        .fullscreen-btn,
+        .back-btn {
+            display: inline-block;
+            width: 200px;
+            padding: 10px;
+            margin: 20px 10px;
+            background-color: #0064ff;
+            color: #fff;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .fullscreen-btn:hover,
+        .back-btn:hover {
+            background-color: #0051d0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="game-container">
+        <div id="game"></div>
+        <!-- Bouton plein écran -->
+        <button class="fullscreen-btn" onclick="toggleFullscreen()">Passer en plein écran</button>
+        <!-- Bouton retour -->
+        <button class="back-btn" onclick="goBack()">Retour</button>
+ 
+    <table border="0" width="100%" style="border-collapse: collapse; margin: 0;">
+  <tbody>
+    <tr>
+      <td colspan="5" style="padding: 0;">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="5" style="padding: 0; font-family: Arial, sans-serif; font-size: 12px; color: #FFFFFF;">
+        <b>Game controls:</b>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="5" style="padding: 0;">
+        <table border="1" width="100%" style="border-collapse: collapse; margin: 0; padding: 0;">
+          <tr>
+            <td width="148" align="center" style="background-color: #333; color: #FFFFFF; padding: 4px;">
+              <b>Keys</b>
+            </td>
+            <td style="background-color: #333; color: #FFFFFF; padding: 4px;">
+              <b>Action</b>
+            </td>
+          </tr>
+          <tr>
+            <td width="148" align="center" style="padding: 4px;"><kbd>↑</kbd> <kbd>↓</kbd></td>
+            <td style="padding: 4px; color: white;">UP / DOWN</td>
+          </tr>
+          <tr>
+            <td width="148" align="center" style="padding: 4px;"><kbd>←</kbd> <kbd>→</kbd></td>
+            <td style="padding: 4px; color: white;">LEFT / RIGHT</td>
+          </tr>
+          <tr>
+            <td width="148" align="center" style="padding: 4px;"><kbd>z</kbd></td>
+            <td style="padding: 4px; color: white;">Shot</td>
+          </tr>
+          <tr>
+            <td width="148" align="center" style="padding: 4px;"><kbd>s</kbd></td>
+            <td style="padding: 4px; color: white;">Pass</td>
+          </tr>
+          <tr>
+            <td width="148" align="center" style="padding: 4px;"><kbd>c</kbd></td>
+            <td style="padding: 4px; color: white;">BUTTON 3</td>
+          </tr>
+          <tr>
+            <td width="148" align="center" style="padding: 4px;"><kbd>v</kbd></td>
+            <td style="padding: 4px; color: white;">Insert Coin</td>
+          </tr>
+          <tr>
+            <td width="148" align="center" style="padding: 4px;"><kbd>START</kbd></td>
+            <td style="padding: 4px; color: white;">Enter</td>
+          </tr>
+          <tr>
+            <td width="148" align="center" style="padding: 4px;"><kbd>SELECT</kbd></td>
+            <td style="padding: 4px; color: white;">Shift</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    
+    
+    </div>
+
+		<script type='text/javascript'>
+			EJS_player = '#game';
+			EJS_core = 'arcade';
+			EJS_biosUrl = 'https://d32k18.github.io/games/emulation/ARCADE/data/compression/arcade.7z';
+			EJS_gameUrl = "https://d32k18.github.io/games/emulation/ARCADE/roms/nbajam.zip";
+			EJS_pathtodata = 'data/';
+			EJS_gameName = "NBA Jam (rev 3.01 04 07 93)";
+			EJS_gameID = 53183;
+			EJS_oldCores = true;
+				
+			
+			
+			function simulateMouseEVent(type, elem) {
+			  elem.dispatchEvent(new MouseEvent(type, {
+				view: window,
+				bubbles: true,
+				cancelable: true
+			  }));
+			  return elem; // make it chainable
+			}
+	
+			$( document ).ready(function() {	
+				setTimeout(
+				  function() {
+					simulateMouseEVent('click', document.getElementsByClassName('ejs--73f9b4e94a7a1fe74e11107d5ab2ef')[0]);
+				}, 10000);
+
+			});
+
+        function toggleFullscreen() {
+            let elem = document.querySelector('.game-container');
+
+            if (document.fullscreenElement) {
+                document.exitFullscreen();
+            } else {
+                elem.requestFullscreen().catch(err => {
+                    console.error(`Erreur lors de la tentative de plein écran: ${err.message}`);
+                });
+            }
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+	
+		</script>
+
+
+    <script src="https://d32k18.github.io/games/emulation/ARCADE/data/loader.js"></script>
+</body>
+</html>
